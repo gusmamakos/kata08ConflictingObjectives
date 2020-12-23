@@ -9,21 +9,22 @@ import java.util.Timer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        long startTime = System.nanoTime();
         BufferedReader br = new BufferedReader( new FileReader("wordlist.txt") );
-        Solution1Readable x = new Solution1Readable();
+//        Solution1Readable x = new Solution1Readable();
+        Solution2Fast x = new Solution2Fast();
         String word;
         while ((word = br.readLine()) != null) {
             x.add(word);
         }
         br.close();
-        Date date = new Date();
-        var start = date.getTime();
-        System.out.println("start: " + start);
-        List<String> results = x.findTwoSubWords();
-        var end = date.getTime();
-        System.out.println("end: " + start);
-        System.out.println("total: " + (end - start));
 
-        System.out.println(results);
+        List<String> results = x.findTwoSubWords();
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println("total: " + duration);
+//        System.out.println(results);
+
     }
 }
