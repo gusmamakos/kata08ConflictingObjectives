@@ -14,7 +14,8 @@ public class Solution2FastTest {
         x.add("albums");
         x.add("Al");
         x.add("BUMS");
-        List<String> results = x.findTwoSubWords();
+        x.findTwoSubWords();
+        List<String> results = x.getResults();
         String expected = "al + bums";
         assertEquals("Didn't find sub words", expected, results.get(0));
     }
@@ -23,8 +24,9 @@ public class Solution2FastTest {
         Solution2Fast x = new Solution2Fast();
         x.add("albums");
         x.add("barely");
-        List<String> result = x.findTwoSubWords();
-        assertEquals( "failed", 0, result.size());
+        x.findTwoSubWords();
+        List<String> results = x.getResults();
+        assertEquals( "failed", 0, results.size());
 
     }
 }
